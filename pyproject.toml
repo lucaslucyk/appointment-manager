@@ -12,6 +12,11 @@ uvicorn = "^0.18.3"
 fastapi = "^0.82.0"
 pydantic = "^1.10.1"
 email-validator = "^1.2.1"
+SQLAlchemy = "^1.4.40"
+psycopg2-binary = "^2.9.3"
+SQLAlchemy-Utils = "^0.38.3"
+asyncpg = "^0.26.0"
+alembic = "^1.8.1"
 
 
 [build-system]

@@ -1,0 +1,26 @@
+[
+    {
+        "email": "asd1@asd.com",
+        "password": "secret",
+        "is_active": true,
+        "role": 1
+    },
+    {
+        "email": "asd2@asd.com",
+        "password": "secret",
+        "is_active": true,
+        "role": 2
+    },
+    {
+        "email": "asd3@asd.com",
+        "password": "secret",
+        "is_active": false,
+        "role": 1
+    },
+    {
+        "email": "asd4@asd.com",
+        "password": "secret",
+        "is_active": false,
+        "role": 2
+    },
+]

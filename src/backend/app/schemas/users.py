@@ -1,10 +1,21 @@
+from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel, EmailStr, SecretStr
 
 
-class User(BaseModel):
+class UserBase(BaseModel):
     email: EmailStr
+    role: int
+
+class UserCreate(UserBase):
     password: SecretStr
+    is_active: Optional[bool]
+
+class User(UserBase):
+    id: int
     is_active: bool
-    first_name: str
-    last_name: str
-    is_professional: bool = False
+    created_at: datetime
+    updated_at: datetime
+    
+    class Config:
+        orm_mode = True
