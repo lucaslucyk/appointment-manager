@@ -5,10 +5,16 @@ from pydantic import BaseModel, EmailStr, SecretStr
 
 class UserBase(BaseModel):
     email: EmailStr
-    role: int
+    # role: int
 
 class UserCreate(UserBase):
     password: SecretStr
+    is_active: Optional[bool]
+
+
+class UserUpdate(UserCreate):
+    email: Optional[SecretStr]
+    password: Optional[SecretStr]
     is_active: Optional[bool]
 
 class User(UserBase):

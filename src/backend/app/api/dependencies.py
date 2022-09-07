@@ -1,5 +1,6 @@
 from typing import Generator
-from app.db.sessions import SessionLocal
+# from sqlalchemy.ext.asyncio import AsyncSession
+from app.db.sessions import SessionLocal, AsyncSessionLocal
 
 
 # Dependency
@@ -9,3 +10,9 @@ def get_db() -> Generator:
         yield db
     finally:
         db.close()
+
+
+async def async_get_db() -> Generator:
+    async with AsyncSessionLocal() as db:
+        yield db
+        await db.commit()

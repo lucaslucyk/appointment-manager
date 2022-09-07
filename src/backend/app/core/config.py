@@ -17,5 +17,6 @@ class Settings(BaseSettings):
     APP_LICENSE: Dict[str, str] = {"name": "MIT"}
 
     SQLALCHEMY_DATABASE_URI: str = "postgresql+psycopg2://root:root@localhost:54320/appointment_mgr"
+    ASYNC_SQLALCHEMY_DATABASE_URI: str = "postgresql+asyncpg://root:root@localhost:54320/appointment_mgr"
 
 settings = Settings()

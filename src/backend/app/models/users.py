@@ -18,7 +18,7 @@ class User(Timestamp, Base):
     email = Column(EmailType, unique=True, index=True, nullable=False)
     password = Column(String(100), nullable=False)
     is_active = Column(Boolean(), default=True)
-    role = Column(SAEnum(Role))
+    # role = Column(SAEnum(Role))
 
     profile = relationship("Profile", back_populates="owner", uselist=False)
 

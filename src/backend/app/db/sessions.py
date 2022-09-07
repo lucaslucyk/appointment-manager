@@ -1,17 +1,23 @@
 from sqlalchemy import create_engine
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
-# SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
-# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-# SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://root:root@localhost:54320/appointment_mgr"
-
 engine = create_engine(
     settings.SQLALCHEMY_DATABASE_URI, connect_args={}, future=True
 )
+async_engine = create_async_engine(
+    settings.ASYNC_SQLALCHEMY_DATABASE_URI
+)
+
 SessionLocal = sessionmaker(
     autocommit=False, autoflush=False, bind=engine, future=True
+)
+AsyncSessionLocal = sessionmaker(
+    async_engine,
+    class_=AsyncSession,
+    expire_on_commit=False
 )
 
 # Base = declarative_base()
