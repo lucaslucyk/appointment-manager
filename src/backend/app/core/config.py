@@ -15,8 +15,35 @@ class Settings(BaseSettings):
         "email": "lucaslucyk@gmail.com"
     }
     APP_LICENSE: Dict[str, str] = {"name": "MIT"}
+    
+    # db settings
+    DB_USER: str = os.getenv("DB_USER", 'root')
+    DB_PASSWORD: str = os.getenv("DB_PASSWORD", 'root')
+    DB_HOST: str = os.getenv("DB_HOST", 'localhost')
+    DB_PORT: str = os.getenv("DB_PORT", '54320')
+    DB_NAME: str = os.getenv("DB_NAME", 'appointment_mgr')
+    
+    # sync connector
+    # SQLALCHEMY_DATABASE_URI: str = "postgresql+psycopg2://root:root@localhost:54320/appointment_mgr"
+    SQLALCHEMY_DATABASE_URI: str = "{}://{}:{}@{}:{}/{}".format(
+        "postgresql+psycopg2",
+        DB_USER,
+        DB_PASSWORD,
+        DB_HOST,
+        DB_PORT,
+        DB_NAME
+    )
 
-    SQLALCHEMY_DATABASE_URI: str = "postgresql+psycopg2://root:root@localhost:54320/appointment_mgr"
-    ASYNC_SQLALCHEMY_DATABASE_URI: str = "postgresql+asyncpg://root:root@localhost:54320/appointment_mgr"
+    # async connector
+    # ASYNC_SQLALCHEMY_DATABASE_URI: str = "postgresql+asyncpg://root:root@localhost:54320/appointment_mgr"
+    ASYNC_SQLALCHEMY_DATABASE_URI: str = "{}://{}:{}@{}:{}/{}".format(
+        "postgresql+asyncpg",
+        DB_USER,
+        DB_PASSWORD,
+        DB_HOST,
+        DB_PORT,
+        DB_NAME
+    )
+    
 
 settings = Settings()

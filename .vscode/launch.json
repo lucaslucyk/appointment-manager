@@ -5,9 +5,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: FastAPI",
+            "name": "Python: FastAPI (unix)",
             "type": "python",
-            // "python": "${workspaceFolder}/.env/bin/python3.exe",
+            "python": "${workspaceFolder}/.env/bin/python3.exe",
             "cwd": "${workspaceFolder}/src/backend/",
             "request": "launch",
             "module": "uvicorn",
@@ -15,6 +15,22 @@
                 "main:app",
                 "--reload"
             ],
+            "envFile": "${workspaceFolder}/src/backend/unix.env",
+            "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: FastAPI (windows)",
+            "type": "python",
+            "python": "${workspaceFolder}\\.env\\Scripts\\python.exe",
+            "cwd": "${workspaceFolder}\\src\\backend\\",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "main:app",
+                "--reload"
+            ],
+            "envFile": "${workspaceFolder}\\src\\backend\\windows.env",
             "jinja": true,
             "justMyCode": true
         }

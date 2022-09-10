@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,linux,windows,visualstudiocode,vim,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,linux,windows,visualstudiocode,vim,macos
 
+### all ###
+*.env
+
+
 ### Linux ###
 *~
 

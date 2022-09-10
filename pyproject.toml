@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "appointment_manager"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 uvicorn = "^0.18.3"
 fastapi = "^0.82.0"
 pydantic = "^1.10.1"
